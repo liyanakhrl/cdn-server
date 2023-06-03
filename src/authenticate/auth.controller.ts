@@ -12,4 +12,12 @@ export class AuthController {
   async login(@Request() req) {
     return this.authService.login(req.user);
   }
+
+  @UseGuards(AuthGuard('jwt'))
+  @Post('logout')
+  async logout(@Request() req) {
+    await this.authService.logout();
+    return { message: 'Logout successful' };
+  }
+  
 }
