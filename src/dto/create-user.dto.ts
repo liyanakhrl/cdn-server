@@ -1,4 +1,4 @@
 /* eslint-disable prettier/prettier */
-import { User } from './user.entity';
+import { User } from '../entity/user.entity';
 
 export class CreateUserDto extends User {}

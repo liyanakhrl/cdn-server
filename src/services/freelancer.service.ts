@@ -2,9 +2,9 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { FreelanceDocument, Freelancer } from './freelance.schema';
-import { CreateFreelancerDTO } from './create-freelancer.dto';
-import { UpdatFreelancerDto } from './update-freelancer.dto';
+import { FreelanceDocument, Freelancer } from '../schema/freelance.schema';
+import { CreateFreelancerDTO } from '../dto/create-freelancer.dto';
+import { UpdatFreelancerDto } from '../dto/update-freelancer.dto';
 @Injectable()
 export class FreelancerService {
   constructor(

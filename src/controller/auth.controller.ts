@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { AuthService } from '../authenticate/auth.service';
+import { AuthService } from '../services/auth.service';
 import { Controller, Request, UseGuards, Post } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 

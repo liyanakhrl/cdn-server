@@ -9,9 +9,9 @@ import {
   Put,
   UseGuards,
 } from '@nestjs/common';
-import { CreateFreelancerDTO } from './create-freelancer.dto';
-import { FreelancerService } from './freelancer.service';
-import { UpdatFreelancerDto } from './update-freelancer.dto';
+import { CreateFreelancerDTO } from '../dto/create-freelancer.dto';
+import { FreelancerService } from '../services/freelancer.service';
+import { UpdatFreelancerDto } from '../dto/update-freelancer.dto';
 import { AuthGuard } from '@nestjs/passport';
 
 // @Controller('freelancer')

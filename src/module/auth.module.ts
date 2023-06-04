@@ -1,12 +1,12 @@
 /* eslint-disable prettier/prettier */
 import { Module } from '@nestjs/common';
-import { AuthService } from './auth.service';
-import { AuthController } from './auth.controller';
+import { AuthService } from '../services/auth.service';
+import { AuthController } from '../controller/auth.controller';
 import { MongooseModule } from '@nestjs/mongoose';
-import { User, UserSchema } from  '../user/user.schema'; 
+import { User, UserSchema } from  '../schema/user.schema'; 
 import { JwtModule } from '@nestjs/jwt';
 import { jwtConstants } from '../stratergy/constant';
-import { UserService } from '../user/user.service' ;
+import { UserService } from '../services/user.service' ;
 import { HashService } from '../common/services/hash.service'
 import { LocalStrategy } from  '../stratergy/local.stratergy'
 

@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { UserService } from '../user/user.service';
+import { UserService } from './user.service';
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { HashService } from '../common/services/hash.service';

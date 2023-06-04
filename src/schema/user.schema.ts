@@ -12,6 +12,8 @@ export class User {
     required: true,
   })
   password: string;
+  email:string;
+  roldId:any
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

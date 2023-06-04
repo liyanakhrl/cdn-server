@@ -1,10 +1,10 @@
 /* eslint-disable prettier/prettier */
 import { Injectable, BadRequestException } from '@nestjs/common';
-import { CreateUserDto } from './create-user.dto';
+import { CreateUserDto } from '../dto/create-user.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { HashService } from '../common/services/hash.service';
-import { User, UserDocument } from './user.schema';
+import { User, UserDocument } from '../schema/user.schema';
 
 @Injectable()
 export class UserService {
