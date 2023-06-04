@@ -9,6 +9,8 @@ import { jwtConstants } from '../stratergy/constant';
 import { UserService } from '../services/user.service' ;
 import { HashService } from '../common/services/hash.service'
 import { LocalStrategy } from  '../stratergy/local.stratergy'
+import { Role, RoleSchema } from 'src/schema/role.schema';
+import { RoleService } from 'src/services/role.service';
 
 @Module({
   imports: [
@@ -17,6 +19,7 @@ import { LocalStrategy } from  '../stratergy/local.stratergy'
         name: User.name,
         schema: UserSchema,
       },
+      { name: Role.name, schema: RoleSchema },
     ]),
     JwtModule.register({
       secret: jwtConstants.secret,
@@ -26,6 +29,6 @@ import { LocalStrategy } from  '../stratergy/local.stratergy'
     }),
   ],
   controllers: [AuthController],
-  providers: [AuthService, UserService, LocalStrategy, HashService],
+  providers: [AuthService, UserService, LocalStrategy, HashService,RoleService],
 })
 export class AuthModule {}

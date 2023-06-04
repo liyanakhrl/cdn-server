@@ -7,4 +7,6 @@ export class Freelancer {
   email: string;
   address: string;
   hourlyRate: string;
+  skillsets: string[]; // Add the skillsets property if needed
 }
+

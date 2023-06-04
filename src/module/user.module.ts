@@ -4,6 +4,7 @@ import { UserService } from '../services/user.service';
 import { UserController } from '../controller/user.controller';
 import { MongooseModule } from '@nestjs/mongoose';
 import { User, UserSchema } from '../schema/user.schema'; 
+import { Role, RoleSchema } from '../schema/role.schema'; 
 import { JwtModule } from '@nestjs/jwt';
 import { jwtConstants } from '../stratergy/constant';
 import { HashService } from '../common/services/hash.service';
@@ -18,6 +19,7 @@ import { LocalStrategy } from '../stratergy/local.stratergy';
         name: User.name,
         schema: UserSchema,
       },
+      { name: Role.name, schema: RoleSchema },
     ]),
     JwtModule.register({
       secret: jwtConstants.secret,
