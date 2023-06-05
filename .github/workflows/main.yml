@@ -29,5 +29,4 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         with:
-          args: -r ./dist -p 22 -i cdn-server-key.pem -u ec2-user -h ec2-44-201-118-199.compute-1.amazonaws.com -P 8080
-
+          args: -r ./dist -p 22 -i cdn-server-key.pem -u ${{ secrets.REMOTE_USER } -h  ${{ secrets.REMOTE_HOST } -P 8080
