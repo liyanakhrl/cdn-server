@@ -1,0 +1,31 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy to EC2
+        uses: easingthemes/ssh-deploy@v2.1.5
+        with:
+          args: -r ./dist -p 22 -i cdn-server-key.pem -u ec2-user -h ec2-44-201-118-199.compute-1.amazonaws.com -P 8080
+
