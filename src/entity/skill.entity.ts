@@ -1,9 +1,8 @@
 /* eslint-disable prettier/prettier */
-import { Schema, SchemaFactory, Prop } from '@nestjs/mongoose';
+import { Schema, Prop, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
 export type SkillDocument = Skill & Document;
-
 @Schema()
 export class Skill {
   @Prop({ required: true })

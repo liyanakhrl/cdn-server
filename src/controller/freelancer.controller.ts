@@ -54,4 +54,14 @@ export class FreelancerController {
   remove(@Param('id') id: string) {
     return this.freelancerService.remove(id);
   }
+
+  
+  @ApiOperation({ summary: 'Update a freelancer skillset' })
+  @Post(':freelanceId/skills/:skillsetId')
+  assignFreelancerSkillset(
+    @Param('freelanceId') freelanceId: any,
+    @Param('skillsetId') skillsetId: any,
+  ) {
+    return this.freelancerService.assignSkillSet(freelanceId, skillsetId);
+  }
 }

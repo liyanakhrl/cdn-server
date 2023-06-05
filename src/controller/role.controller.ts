@@ -35,6 +35,7 @@ export class RoleController {
   @ApiOperation({ summary: 'Update a role by ID' })
   @ApiResponse({ status: 200, description: 'Role updated successfully' })
   @ApiResponse({ status: 404, description: 'Role not found' })
+  @ApiBody({ type: CreateRoleDto })
   @Put(':id')
   updateRoleById(
     @Param('id') id: string,

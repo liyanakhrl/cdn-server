@@ -1,11 +1,18 @@
 /* eslint-disable prettier/prettier */
-// /* eslint-disable prettier/prettier */
-// import { User } from '../entity/user.entity';
+import { ApiProperty } from "@nestjs/swagger/dist/decorators/api-property.decorator";
 
-// export class CreateUserDto extends User {}
+ 
 export class CreateUserDto {
+  
+  @ApiProperty()
   readonly username: string;
+  
+  @ApiProperty()
   readonly password: string;
+  
+  @ApiProperty()
   readonly email: string;
+  
+  @ApiProperty()
   readonly roles: number[]; // Array of role IDs
 }
