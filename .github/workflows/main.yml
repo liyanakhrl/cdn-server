@@ -28,5 +28,7 @@ jobs:
         uses: easingthemes/ssh-deploy@v2.1.5
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ec2-44-201-118-199.compute-1.amazonaws.com
+          REMOTE_USER: ec2-user
         with:
-          args: -r ./dist -p 22 -i cdn-server-key.pem -u ${{ secrets.REMOTE_USER }} -h  ${{ secrets.REMOTE_HOST }} -P 8080
+          args: -r ./dist -p 22 -i cdn-server-key.pem -u ${{ env.REMOTE_USER }} -h ${{ env.REMOTE_HOST }} -P 8080
