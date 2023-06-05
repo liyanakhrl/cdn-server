@@ -1,10 +1,5 @@
 /* eslint-disable prettier/prettier */
-// export class User {
-//   username: string;
-//   password: string;
-//   email: string;
-//   roleId: string[]; // Add the roleId property if needed
-// }
+
 
 import { Schema, Document, model } from 'mongoose';
 import { Role } from './role.entity';
