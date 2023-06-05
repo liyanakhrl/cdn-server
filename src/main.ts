@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
@@ -21,6 +22,6 @@ async function bootstrap() {
 
   // Add Swagger UI to the application
   SwaggerModule.setup('api', app, document);
-  await app.listen(3000);
+  await app.listen(8080);//3000);
 }
 bootstrap();
