@@ -22,6 +22,6 @@ async function bootstrap() {
 
   // Add Swagger UI to the application
   SwaggerModule.setup('api', app, document);
-  await app.listen(8080);//3000);
+  await app.listen(3000);
 }
 bootstrap();
