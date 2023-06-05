@@ -13,25 +13,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Configure SSH key
-        run: echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa && chmod 600 ~/.ssh/id_rsa
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
-      - name: Build application
+      - name: Build
         run: npm run build
 
       - name: Deploy to EC2
-        run: |
-          ssh -i ~/.ssh/id_rsa ec2-user@ec2-44-201-118-199.compute-1.amazonaws.com << 'SSH_SCRIPT'
-            cd /path/to/your/application
-            # Stop the running application if needed
-            pm2 stop all
-            # Copy the built files to the EC2 instance
-            scp -r ./dist ec2-user@ec2-44-201-118-199.compute-1.amazonaws.com:/path/to/your/application
-            # Install dependencies on the EC2 instance
-            ssh ec2-user@ec2-44-201-118-199.compute-1.amazonaws.com 'cd /path/to/your/application && npm ci'
-            # Restart the application using pm2 or your preferred method
-            pm2 start dist/main.js
-          SSH_SCRIPT
+        uses: easingthemes/ssh-deploy@v2.1.5
+        with:
+          args: -r ./dist -p 22 -i cdn-server-key.pem -u ec2-user -h ec2-44-201-118-199.compute-1.amazonaws.com -P 8080
+
